@@ -1,0 +1,4 @@
+localstack==0.12.10
+awscli
+awscli-local
+tabulate

@@ -1,0 +1,4 @@
+ls/
+*.sw*
+kubeconfig
+.env
