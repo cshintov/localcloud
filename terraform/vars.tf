@@ -18,10 +18,6 @@ variable "ami" {
     }
 }
 
-variable "ec2_user" {
-    default = "ec2-user"
-}
-
 variable "public_key_path" {
     default = "./keys/prod-key-pair.pub"
 }
