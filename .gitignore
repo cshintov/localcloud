@@ -2,3 +2,4 @@ ls/
 *.sw*
 kubeconfig
 .env
+.terraform.lock.hcl
