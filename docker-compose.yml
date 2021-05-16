@@ -23,7 +23,7 @@ services:
       - "${TMPDIR:-./ls/tmp}:/tmp/localstack"
       - "${DATADIR:-./ls/data}:/tmp/localstack/data"
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "./kube:/root/.kube"
+      - "./kube/config:/root/.kube/config"
 
 networks:
   default:
