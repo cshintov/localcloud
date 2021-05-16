@@ -56,6 +56,7 @@ resource "aws_instance" "bastion" {
     depends_on = [
         module.eks
     ]
+
     ami = data.aws_ami.ubuntu.id
     instance_type = "t2.small"    
     
@@ -65,7 +66,7 @@ resource "aws_instance" "bastion" {
 
     provisioner "file" {
         source = "./kubeconfig_${var.cluster_name}"
-        destination = "/home/ubuntu/.kubec/config"
+        destination = "/home/ubuntu/.kube/config"
     }
 
     provisioner "remote-exec" {
@@ -82,7 +83,12 @@ resource "aws_instance" "bastion" {
         private_key = "${file(local.private_key_path)}"
     }
 
-    tags = merge({For = "Bastion"}, local.tags)
+    tags = merge(
+        {
+            For = "Bastion"
+            Name = "${var.environment}-${var.project}-bastion"
+        }, 
+        local.tags)
 }
 
 locals  {
